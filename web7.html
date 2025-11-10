@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calendar</title>
+  <style>
+    body { text-align: center; }
+    h2 { color: #333; }
+    input, button { padding: 5px; margin: 5px; }
+    button { background: #0078d7; color: white; }
+    #calendar { margin-top: 20px; }
+    h3 { background: #0078d7; color: white; padding: 5px; }
+    .days { white-space: pre; }
+  </style>
+</head>
+<body>
+  <h2>📅 Simple Calendar</h2>
+  <input type="number" id="yearInput" placeholder="2025">
+  <button onclick="showCalendar()">Show Calendar</button>
+  <div id="calendar"></div>
+  <script>
+    function showCalendar() {
+      const year = document.getElementById("yearInput").value;
+      const calendar = document.getElementById("calendar");
+      calendar.innerHTML = "";
+
+      if (!year) {
+        alert("Please enter a year!");
+        return;
+      }
+
+      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      for (let m = 0; m < 12; m++) {
+        const daysInMonth = new Date(year, m + 1, 0).getDate();
+        const firstDay = new Date(year, m, 1).getDay();
+
+        let days = "";
+        for (let i = 0; i < firstDay; i++) days += "    ";
+        for (let day = 1; day <= daysInMonth; day++) {
+          days += (day < 10 ? "  " + day : day) + " ";
+          if ((firstDay + day) % 7 === 0) days += "\n";
+        }
+
+        calendar.innerHTML += `<h3>${months[m]} ${year}</h3><div>Sun Mon Tue Wed Thu Fri Sat</div><div class="days">${days}</div>`;
+      }
+    }
+  </script>
+</body>
+</html>

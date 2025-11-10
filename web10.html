@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mouseover Event Example</title>
+  <style>
+    /* small layout styles to make the demo tidy */
+    body{font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial;padding:1rem;background:#fafafa}
+    .wrap{max-width:560px;margin:0 auto;background:#fff;padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+    img{display:block;max-width:100%;height:auto;border-radius:6px}
+    p{margin-top:.6rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Hover Over the Image</h2>
+    <img id="myImage" src="https://via.placeholder.com/200" alt="placeholder image">
+    <p id="text">This is the original image.</p>
+  </div>
+
+  <script>
+    // Defensive, DOMContentLoaded-wrapped event wiring
+    document.addEventListener('DOMContentLoaded', function(){
+      const img = document.getElementById('myImage');
+      const text = document.getElementById('text');
+      const originalSrc = img ? img.src : '';
+      const hoverSrc = '/home/student/Sreehari c/web program/mca pic.jpg';
+
+      function changeContent(){
+        if(!img || !text) return;
+        try{ img.src = hoverSrc; }catch(e){}
+        text.innerText = 'This is the new image!';
+      }
+
+      function resetContent(){
+        if(!img || !text) return;
+        try{ img.src = originalSrc; }catch(e){}
+        text.innerText = 'This is the original image.';
+      }
+
+      if(img){
+        img.addEventListener('mouseover', changeContent);
+        img.addEventListener('mouseout', resetContent);
+        // also support keyboard focus/blur for accessibility
+        img.setAttribute('tabindex','0');
+        img.addEventListener('focus', changeContent);
+        img.addEventListener('blur', resetContent);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE ht<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Form</title>
+    <style>
+    body {
+      background-color: sky-blue;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4b0082;
+    }
+
+    form {
+      background-color: white;
+      width: 50%;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #4b0082;
+    }
+    label {
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #999;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: auto;
+    }
+
+    input[type="submit"],{
+      width: 100px;
+      padding: 8px;
+      background-color: #660099;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    input[type="submit"]:hover,
+      background-color: #9933ff;
+    }
+    </style>
+</head>
+<body>
+
+<?php if ($success): ?>
+    <div style="color:green;">
+        <h3>Registration Successful!</h3>
+        <p>Welcome, <strong><?= htmlspecialchars($fullname) ?></strong></p>
+        <p>Email: <?= htmlspecialchars($email) ?></p>
+        <p>Age: <?= htmlspecialchars($age) ?></p>
+    </div>
+<?php elseif (!empty($errors)): ?>
+    <div style="color:red;">
+        <h3>There were some errors:</h3>
+        <ul>
+            <?php foreach ($errors as $error): ?>
+                <li><?= htmlspecialchars($error) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+<h2>User Registration</h2>
+
+<form method="POST" action="">
+    <label>Full Name:</label><br>
+    <input type="text" name="fullname" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <label>Confirm Password:</label><br>
+    <input type="password" name="confirm_password" required><br><br>
+
+    <label>Age:</label><br>
+    <input type="number" name="age" required><br><br>
+
+    <input type="submit" value="Register">
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>String & Math Functions</title>
+  <style>
+    /* Minimal, unobtrusive CSS */
+    :root{--bg:#f7f7f7;--card:#ffffff;--muted:#6b7280}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:1.25rem;
+    }
+    .container{
+      max-width:720px;
+      margin:0 auto;
+      background:var(--card);
+      padding:1rem 1.25rem;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(16,24,40,0.06);
+    }
+    h2{margin-top:0;font-size:1.25rem}
+    h3{color:var(--muted);margin-bottom:.25rem}
+    .result{display:block;background:#f3f4f6;padding:.35rem .5rem;border-radius:6px;font-family:monospace;white-space:pre-wrap}
+    @media (max-width:420px){body{padding:.75rem}.container{padding:.75rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>String & Math Object Examples</h2>
+
+    <h3>String Functions</h3>
+  <script>
+    let str = "Hello JavaScript!";
+    // Write results inside simple blocks so CSS can target them
+    function writeLine(label, value){
+      document.write("<span class=\"result\"><strong>"+label+"</strong> " + value + "</span><br>");
+    }
+
+    writeLine('Original:', str);
+    writeLine('Length:', str.length);
+    writeLine('Uppercase:', str.toUpperCase());
+    writeLine('Substring (0–5):', str.substring(0,5));
+    writeLine('Replace:', str.replace('JavaScript', 'World'));
+
+    document.write("<h3>Math Functions</h3>");
+    writeLine('Random (0–1):', Math.random());
+    writeLine('Square Root of 16:', Math.sqrt(16));
+    writeLine('Power (2³):', Math.pow(2,3));
+    writeLine('Round(4.7):', Math.round(4.7));
+    writeLine('Max(10, 20, 5):', Math.max(10,20,5));
+  </script>
+  </div>
+</body>
+</html>
