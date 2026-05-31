@@ -1,0 +1,28 @@
+Based on the uploaded syllabus and module PDFs, here is the complete chapter-wise and
+topic-wise breakdown of the Advanced Computer Networks (ACN) syllabus. I have
+consolidated the topics from the syllabus and module notes into an exam-oriented structure.
+MODULE 1: INTRODUCTION TO
+COMPUTER NETWORKS &
+APPLICATION LAYER
+Chapter 1: Overview of Computer Networks
+1.1 Computer Networks
+● Definition of Network
+● Hosts / End Systems
+● Connecting Devices
+○ Routers
+○ Switches
+○ Modems
+● Wired and Wireless Media
+1.2 LAN (Local Area Network)
+● Characteristics
+● Addressing
+● Packet Communication
+● LAN Switching
+● Modern LAN Architecture
+1.3 WAN (Wide Area Network)
+● Characteristics
+● Point-to-Point WAN
+● Switched WAN
+● Communication Service Providers
+Chapter 2: Switching
+2.1 Circuit Switching
